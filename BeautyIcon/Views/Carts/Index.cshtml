@@ -1,0 +1,37 @@
+﻿@model CartViewModel
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            @foreach(var i in Model.Cart.CartItems)
+            {
+                <tr>
+                    <td>@i.Product.ProductName</td>
+                    <td>@i.Quantity</td>
+                    <td>@i.Product.ProductPrice</td>
+                    <td>@((i.Product.ProductPrice*i.Quantity).ToString("c"))</td>
+                </tr>
+                
+            }
+        
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total</td>
+            <td>@Model.Cart.GetTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<a class="btn btn-primary" asp-controller="Orders" asp-action="Checkout">Checkout</a>

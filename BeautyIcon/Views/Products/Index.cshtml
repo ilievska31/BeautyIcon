@@ -1,0 +1,16 @@
+﻿@model ProductsListViewModel
+
+
+    <div class="row">
+        @foreach (var p in Model.Products)
+        {
+            <partial name="_ProductCard" model="p" />
+
+        }
+    </div>
+
+
+
+    
+
+
